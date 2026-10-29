@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Login | CPAShimu & CPAGrip</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="landing-body min-h-screen flex items-center justify-center p-4 selection:bg-orange-500 selection:text-white">
+
+  <div class="fixed inset-0 bg-dot-matrix pointer-events-none z-0"></div>
+  <div class="glow-orange-orb top-[-100px] left-[-150px] z-0"></div>
+
+  <div class="relative z-10 w-full max-w-md">
+    
+    <!-- Brand Logo -->
+    <div class="text-center mb-6">
+      <a href="index.html" class="inline-flex items-center gap-2">
+        <span class="text-2xl font-black text-white tracking-tight font-sans">CPA<span class="text-orange-500">Shimu</span></span>
+      </a>
+      <h1 class="text-xl font-bold text-white mt-2">Affiliate Portal Login</h1>
+      <p class="text-xs text-gray-400">Access your CPAGrip performance dashboard</p>
+    </div>
+
+    <!-- Login Box -->
+    <div class="bg-[#101524] rounded-2xl p-7 border border-gray-800 shadow-2xl space-y-5">
+      
+      <!-- 1-Click Instant Demo Login Button -->
+      <div class="space-y-2">
+        <span class="text-[11px] font-mono text-gray-400 uppercase tracking-wider block text-center">Fast Demo Preview:</span>
+        <button type="button" onclick="loginDemoPublisher()" class="w-full py-2.5 px-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange-500/25">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Instant CPAGrip Dashboard Login</span>
+        </button>
+      </div>
+
+      <div class="relative flex py-1 items-center">
+        <div class="flex-grow border-t border-gray-800"></div>
+        <span class="flex-shrink mx-3 text-[10px] text-gray-500 uppercase font-mono">or standard login</span>
+        <div class="flex-grow border-t border-gray-800"></div>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+        
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1.5">Affiliate Email / Username</label>
+          <div class="relative">
+            <i class="fa-regular fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+            <input type="email" id="email" required value="affiliate@cpagrip.com" class="w-full bg-[#161d31] border border-gray-700 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500">
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-center mb-1.5 text-xs">
+            <label class="font-semibold text-gray-300">Password</label>
+            <a href="#" class="text-orange-400 hover:text-orange-300">Forgot?</a>
+          </div>
+          <div class="relative">
+            <i class="fa-solid fa-key absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs"></i>
+            <input type="password" id="password" required value="demo2026pass" class="w-full bg-[#161d31] border border-gray-700 rounded-xl pl-9 pr-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 font-mono">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-gray-400">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="rounded bg-gray-900 border-gray-700 text-orange-500 focus:ring-0">
+            <span>Remember device</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-orange-glow text-white font-bold text-xs py-3 px-4 rounded-xl w-full flex items-center justify-center gap-2">
+          <span>Sign In to Dashboard</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+
+      </form>
+
+      <div class="text-center pt-2 border-t border-gray-800 text-xs text-gray-400">
+        New to the network? 
+        <a href="register.html" class="text-orange-400 hover:text-orange-300 font-bold ml-1">Register Free</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function loginDemoPublisher() {
+      window.location.href = 'dashboard.html';
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+
+</body>
+</html>

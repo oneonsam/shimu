@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPAGrip - Affiliate Dashboard</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Chart.js for Hourly Graph -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body bg-[#f1f5f9] text-[#1e293b] font-sans antialiased text-xs">
+
+  <!-- Top Navigation Bar (Faithfully Recreated from Image 2) -->
+  <header class="h-14 bg-[#111726] border-b border-gray-800 text-white px-4 flex items-center justify-between sticky top-0 z-40">
+    
+    <!-- Logo & Welcome -->
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-black tracking-tight text-white font-mono flex items-center">
+          <span class="text-emerald-400 mr-1"><i class="fa-solid fa-money-bill-wave"></i></span>
+          CPAGRIP
+        </span>
+      </div>
+
+      <div class="hidden sm:flex items-center text-xs text-gray-300 font-medium">
+        <span>Welcome: <strong class="text-white">Stella G.</strong> <span class="text-emerald-400 font-bold">(Standard)</span> <span class="text-gray-400 font-mono">(Affiliate: #400264)</span></span>
+      </div>
+    </div>
+
+    <!-- Center/Right Clock & Tools -->
+    <div class="flex items-center gap-4">
+      
+      <div class="hidden md:flex items-center gap-2 text-xs text-gray-300 font-mono">
+        <i class="fa-regular fa-clock text-orange-400"></i>
+        <span>Server Time: <strong id="cpagrip-server-clock" class="text-white">4:41pm</strong></span>
+      </div>
+
+      <!-- Quick Action Icons -->
+      <div class="flex items-center gap-3 text-gray-300 text-sm">
+        <a href="#shoutbox" title="Public Chat" class="hover:text-orange-400 transition-colors">
+          <i class="fa-regular fa-comment-dots"></i>
+        </a>
+        <a href="#" title="Notifications" class="hover:text-orange-400 transition-colors relative">
+          <i class="fa-regular fa-bell"></i>
+          <span class="absolute -top-1.5 -right-2 bg-orange-500 text-white text-[9px] font-bold px-1 rounded-full">0</span>
+        </a>
+        <a href="#" title="Settings" class="hover:text-orange-400 transition-colors">
+          <i class="fa-solid fa-gear"></i>
+        </a>
+      </div>
+
+      <!-- Refer a Friend Banner (From Image 2) -->
+      <div class="hidden lg:flex items-center bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-3 py-1.5 rounded-md font-bold text-xs uppercase tracking-wide cursor-pointer shadow-md transition-all">
+        <i class="fa-solid fa-users mr-1.5"></i>
+        <span>Refer a Friend</span>
+        <span class="bg-black/20 text-white text-[10px] ml-1.5 px-1 rounded font-mono">5%</span>
+      </div>
+
+      <!-- User Avatar & Logout -->
+      <a href="login.html" title="Sign Out" class="text-gray-400 hover:text-red-400 font-semibold text-xs ml-1 flex items-center gap-1">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Dashboard Workspace Layout -->
+  <div class="flex min-h-[calc(100vh-56px)]">
+    
+    <!-- Left Navigation Sidebar (From Image 2) -->
+    <aside class="w-60 cpagrip-sidebar shrink-0 p-3 flex flex-col justify-between hidden md:flex border-r border-gray-800">
+      
+      <div class="space-y-4">
+        
+        <!-- Today's Revenue Box (Image 2) -->
+        <div class="bg-[#141b2d] rounded-lg p-3 border border-gray-700/80 text-center">
+          <span class="text-[11px] text-gray-400 uppercase font-mono block">Today's Revenue:</span>
+          <div class="text-2xl font-black text-emerald-400 font-mono mt-0.5">$117.19</div>
+          <span class="text-[10px] text-orange-400 font-semibold flex items-center justify-center gap-1 mt-0.5">
+            <i class="fa-solid fa-arrow-trend-up"></i> Live Tracking Active
+          </span>
+        </div>
+
+        <!-- Sidebar Navigation Items (Exact from Image 2) -->
+        <nav class="space-y-1 text-xs">
+          
+          <a href="dashboard.html" class="cpagrip-sidebar-item active flex items-center gap-2.5 px-3 py-2 rounded-md">
+            <i class="fa-solid fa-gauge-high w-4 text-center"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <!-- Statistics & Charts Dropdown -->
+          <div class="space-y-0.5">
+            <button class="w-full cpagrip-sidebar-item flex items-center justify-between px-3 py-2 rounded-md text-left text-gray-300">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-chart-column w-4 text-center text-orange-400"></i>
+                <span>Statistics & Charts</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+            </button>
+            <div class="pl-7 pr-2 py-1 space-y-1 text-[11px] text-gray-400">
+              <a href="#" class="block hover:text-orange-400 py-0.5">Stats Overview</a>
+              <a href="#" class="block hover:text-orange-400 py-0.5">Daily Breakdown</a>
+              <a href="#" class="block hover:text-orange-400 py-0.5">Tool Breakdown</a>
+              <a href="#" class="block hover:text-orange-400 py-0.5">Country Breakdown</a>
+            </div>
+          </div>
+
+          <!-- Monetization Tools -->
+          <div class="space-y-0.5">
+            <button class="w-full cpagrip-sidebar-item flex items-center justify-between px-3 py-2 rounded-md text-left text-gray-300">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-cubes w-4 text-center text-cyan-400"></i>
+                <span>Monetization Tools</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+            </button>
+            <div class="pl-7 pr-2 py-1 space-y-1 text-[11px] text-gray-400">
+              <a href="lockers.html" class="block hover:text-orange-400 py-0.5 flex items-center gap-1.5">
+                <i class="fa-solid fa-lock text-[9px]"></i> Content Lockers
+              </a>
+              <a href="lockers.html" class="block hover:text-orange-400 py-0.5 flex items-center gap-1.5">
+                <i class="fa-solid fa-file-arrow-down text-[9px]"></i> URL / File Lockers
+              </a>
+              <a href="lockers.html" class="block hover:text-orange-400 py-0.5 flex items-center gap-1.5">
+                <i class="fa-solid fa-video text-[9px]"></i> Video Lockers
+              </a>
+              <a href="offers.html" class="block hover:text-orange-400 py-0.5 flex items-center gap-1.5">
+                <i class="fa-solid fa-table-cells text-[9px]"></i> Offer Walls
+              </a>
+            </div>
+          </div>
+
+          <!-- Offer Tools -->
+          <div class="space-y-0.5">
+            <button class="w-full cpagrip-sidebar-item flex items-center justify-between px-3 py-2 rounded-md text-left text-gray-300">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-tag w-4 text-center text-amber-400"></i>
+                <span>Offer Tools</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+            </button>
+            <div class="pl-7 pr-2 py-1 space-y-1 text-[11px] text-gray-400">
+              <a href="offers.html" class="block hover:text-orange-400 py-0.5">My Offers</a>
+              <a href="offers.html" class="block hover:text-orange-400 py-0.5">RSS Offer Feed</a>
+              <a href="offers.html" class="block hover:text-orange-400 py-0.5">JSON Offer Feed</a>
+              <a href="offers.html" class="block hover:text-orange-400 py-0.5">CSV Offer Export</a>
+            </div>
+          </div>
+
+          <!-- Postback Tools -->
+          <div class="space-y-0.5">
+            <button class="w-full cpagrip-sidebar-item flex items-center justify-between px-3 py-2 rounded-md text-left text-gray-300">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-cloud-arrow-up w-4 text-center text-blue-400"></i>
+                <span>Postback Tools</span>
+              </span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-gray-400"></i>
+            </button>
+            <div class="pl-7 pr-2 py-1 space-y-1 text-[11px] text-gray-400">
+              <a href="#" class="block hover:text-orange-400 py-0.5">Global Postback</a>
+              <a href="#" class="block hover:text-orange-400 py-0.5">Multi Postback</a>
+              <a href="#" class="block hover:text-orange-400 py-0.5">Postback Logs</a>
+            </div>
+          </div>
+
+          <!-- Other Tools -->
+          <a href="#" class="cpagrip-sidebar-item flex items-center gap-2.5 px-3 py-2 rounded-md text-gray-300">
+            <i class="fa-solid fa-user-plus w-4 text-center text-pink-400"></i>
+            <span>Referral Program</span>
+          </a>
+
+          <a href="#" class="cpagrip-sidebar-item flex items-center gap-2.5 px-3 py-2 rounded-md text-gray-300">
+            <i class="fa-solid fa-credit-card w-4 text-center text-emerald-400"></i>
+            <span>Payment Center</span>
+          </a>
+
+          <a href="#" class="cpagrip-sidebar-item flex items-center gap-2.5 px-3 py-2 rounded-md text-gray-300">
+            <i class="fa-solid fa-user-gear w-4 text-center text-purple-400"></i>
+            <span>Account Settings</span>
+          </a>
+
+          <a href="index.html" class="cpagrip-sidebar-item flex items-center gap-2.5 px-3 py-2 rounded-md text-gray-300">
+            <i class="fa-solid fa-globe w-4 text-center text-cyan-400"></i>
+            <span>View Public Website</span>
+          </a>
+
+        </nav>
+
+      </div>
+
+      <!-- Quick Affiliate Status -->
+      <div class="p-2.5 bg-[#141b2d] rounded-lg border border-gray-800 text-[11px] text-gray-400 font-mono">
+        <div class="flex justify-between"><span>Payment Rail:</span> <span class="text-white font-bold">PayPal / USDT</span></div>
+        <div class="flex justify-between mt-1"><span>Status:</span> <span class="text-emerald-400 font-bold">Approved</span></div>
+      </div>
+
+    </aside>
+
+    <!-- Main Content Body (Image 2) -->
+    <main class="flex-1 p-4 md:p-6 space-y-4 overflow-y-auto">
+      
+      <!-- Breadcrumb Header -->
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="text-gray-400 text-xs">Home /</span>
+          <h1 class="text-xl font-bold text-gray-800 inline-block ml-1">Dashboard</h1>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="offers.html" class="bg-white border border-gray-300 hover:border-orange-500 text-gray-700 text-xs font-bold px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-magnifying-glass text-orange-500"></i>
+            <span>Browse Offers</span>
+          </a>
+          <a href="lockers.html" class="bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-plus"></i>
+            <span>Create Locker</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Row 1: Public Chat (Left) + Stats Overview & Hourly Stats (Right) -->
+      <div class="grid lg:grid-cols-12 gap-4">
+        
+        <!-- Left Box: Public Chat / Shoutbox (Image 2 Exact Feature) -->
+        <div class="lg:col-span-7 cpagrip-card flex flex-col h-[380px]">
+          
+          <div class="cpagrip-card-header flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+                <i class="fa-solid fa-hashtag text-orange-500"></i>
+                Public Chat
+              </span>
+            </div>
+            <div class="flex items-center gap-2 text-gray-400 text-xs">
+              <button title="Settings"><i class="fa-solid fa-gear hover:text-gray-600"></i></button>
+              <button title="Expand"><i class="fa-solid fa-up-right-and-down-left-from-center hover:text-gray-600"></i></button>
+            </div>
+          </div>
+
+          <!-- Chat Content with Online Users Column -->
+          <div class="flex-1 flex overflow-hidden">
+            
+            <!-- Message Stream Area -->
+            <div id="cpagrip-chat-messages" class="flex-1 overflow-y-auto p-2 space-y-0.5 bg-white border-r border-gray-100">
+              <!-- Rendered via app.js -->
+            </div>
+
+            <!-- Online Users List (Right side of Chat from Image 2) -->
+            <div class="w-28 bg-[#fbfcfd] overflow-y-auto p-2 border-l border-gray-100 font-mono text-[11px] text-gray-600 hidden sm:block">
+              <span class="text-[10px] text-gray-400 font-bold block mb-1 uppercase">Online (17)</span>
+              <div class="space-y-1">
+                <div class="hover:text-orange-500 cursor-pointer">Alissa</div>
+                <div class="hover:text-orange-500 cursor-pointer">JerryJ</div>
+                <div class="hover:text-orange-500 cursor-pointer text-blue-600 font-bold">JohnW</div>
+                <div class="hover:text-orange-500 cursor-pointer">SteveC</div>
+                <div class="hover:text-orange-500 cursor-pointer text-emerald-600 font-bold">Support</div>
+                <div class="hover:text-orange-500 cursor-pointer">007nizo</div>
+                <div class="hover:text-orange-500 cursor-pointer">100Rabh</div>
+                <div class="hover:text-orange-500 cursor-pointer">2026</div>
+                <div class="hover:text-orange-500 cursor-pointer">2YEARS</div>
+                <div class="hover:text-orange-500 cursor-pointer">3301</div>
+                <div class="hover:text-orange-500 cursor-pointer">50Cent</div>
+                <div class="hover:text-orange-500 cursor-pointer">abdelat</div>
+                <div class="hover:text-orange-500 cursor-pointer">acu</div>
+                <div class="hover:text-orange-500 cursor-pointer">adece</div>
+                <div class="hover:text-orange-500 cursor-pointer">AdrianC</div>
+                <div class="hover:text-orange-500 cursor-pointer">Agabi</div>
+                <div class="hover:text-orange-500 cursor-pointer">AGACPA</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Chat Input Bar -->
+          <div class="p-2 border-t border-gray-200 bg-gray-50 flex items-center gap-2">
+            <input type="text" id="cpagrip-chat-input" placeholder="Type /help for a list of commands..." onkeydown="if(event.key==='Enter') sendChatMessage()" class="flex-1 bg-white border border-gray-300 rounded px-2.5 py-1.5 text-xs text-gray-800 focus:outline-none focus:border-orange-500">
+            <button onclick="sendChatMessage()" class="bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-bold text-xs px-4 py-1.5 rounded flex items-center gap-1 transition-colors">
+              <i class="fa-solid fa-paper-plane text-[10px]"></i>
+              <span>Send</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Stats Overview & Hourly Stats (Image 2) -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- Stats Overview Card -->
+          <div class="cpagrip-card">
+            <div class="cpagrip-card-header flex items-center justify-between">
+              <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+                <i class="fa-solid fa-chart-simple text-blue-500"></i>
+                Stats Overview
+              </span>
+              <a href="#" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i></a>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left cpagrip-table">
+                <thead>
+                  <tr>
+                    <th>Period</th>
+                    <th>Views</th>
+                    <th>Clicks</th>
+                    <th>Leads</th>
+                    <th>Revenue</th>
+                    <th>EPC</th>
+                    <th>Conv.</th>
+                  </tr>
+                </thead>
+                <tbody class="font-mono text-gray-700">
+                  <tr>
+                    <td class="font-sans font-semibold text-gray-900">Today <span class="text-emerald-500 text-[10px] font-bold">(Live)</span></td>
+                    <td>523</td>
+                    <td>496</td>
+                    <td class="font-bold text-gray-900">106</td>
+                    <td class="text-emerald-600 font-bold">$117.19</td>
+                    <td class="text-gray-600">$0.236</td>
+                    <td class="text-blue-600 font-semibold">21.37%</td>
+                  </tr>
+                  <tr>
+                    <td class="font-sans font-semibold text-gray-900">Yesterday</td>
+                    <td>533</td>
+                    <td>512</td>
+                    <td class="font-bold text-gray-900">122</td>
+                    <td class="text-emerald-600 font-bold">$130.26</td>
+                    <td class="text-gray-600">$0.254</td>
+                    <td class="text-blue-600 font-semibold">23.83%</td>
+                  </tr>
+                  <tr class="bg-orange-50/30">
+                    <td class="font-sans font-bold text-gray-900">MTD</td>
+                    <td>4,424</td>
+                    <td>4,254</td>
+                    <td class="font-bold text-gray-900">751</td>
+                    <td class="text-emerald-600 font-bold">$1,102.98</td>
+                    <td class="text-gray-600">$0.259</td>
+                    <td class="text-blue-600 font-semibold">17.65%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Hourly Stats Graph Card (From Image 2) -->
+          <div class="cpagrip-card p-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+                <i class="fa-solid fa-chart-line text-emerald-500"></i>
+                Hourly Stats
+              </span>
+              <span class="text-[10px] font-mono text-gray-400">Peak: 2pm (34 leads)</span>
+            </div>
+            <div class="h-32">
+              <canvas id="cpagripHourlyChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Row 2: Top Country Breakdown (Wide Table from Image 2) -->
+      <div class="cpagrip-card">
+        
+        <div class="cpagrip-card-header flex items-center justify-between">
+          <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+            <i class="fa-solid fa-earth-americas text-orange-500"></i>
+            Top Country Breakdown
+          </span>
+          <a href="#" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i></a>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left cpagrip-table">
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Views</th>
+                <th>Clicks</th>
+                <th>CTR</th>
+                <th>Leads</th>
+                <th>Revenue</th>
+                <th>EPC</th>
+                <th>RPM</th>
+              </tr>
+            </thead>
+            <tbody class="font-mono text-gray-700">
+              <tr>
+                <td class="font-sans font-semibold text-gray-900 flex items-center gap-1.5">
+                  <span class="text-sm">🇧🇪</span>
+                  <span>Belgium (BE)</span>
+                </td>
+                <td>119</td>
+                <td>116</td>
+                <td class="text-gray-600">97.48%</td>
+                <td class="font-bold text-gray-900">45</td>
+                <td class="text-emerald-600 font-bold">$44.07</td>
+                <td class="text-gray-600">$0.380</td>
+                <td class="text-gray-600">$370.34</td>
+              </tr>
+              <tr>
+                <td class="font-sans font-semibold text-gray-900 flex items-center gap-1.5">
+                  <span class="text-sm">🇺🇸</span>
+                  <span>United States (US)</span>
+                </td>
+                <td>104</td>
+                <td>100</td>
+                <td class="text-gray-600">96.15%</td>
+                <td class="font-bold text-gray-900">13</td>
+                <td class="text-emerald-600 font-bold">$22.23</td>
+                <td class="text-gray-600">$0.222</td>
+                <td class="text-gray-600">$213.75</td>
+              </tr>
+              <tr>
+                <td class="font-sans font-semibold text-gray-900 flex items-center gap-1.5">
+                  <span class="text-sm">🇦🇺</span>
+                  <span>Australia (AU)</span>
+                </td>
+                <td>52</td>
+                <td>52</td>
+                <td class="text-gray-600">100.00%</td>
+                <td class="font-bold text-gray-900">11</td>
+                <td class="text-emerald-600 font-bold">$20.70</td>
+                <td class="text-gray-600">$0.398</td>
+                <td class="text-gray-600">$398.08</td>
+              </tr>
+              <tr>
+                <td class="font-sans font-semibold text-gray-900 flex items-center gap-1.5">
+                  <span class="text-sm">🇬🇧</span>
+                  <span>United Kingdom (GB)</span>
+                </td>
+                <td>100</td>
+                <td>97</td>
+                <td class="text-gray-600">97.00%</td>
+                <td class="font-bold text-gray-900">7</td>
+                <td class="text-emerald-600 font-bold">$8.96</td>
+                <td class="text-gray-600">$0.092</td>
+                <td class="text-gray-600">$89.60</td>
+              </tr>
+              <tr>
+                <td class="font-sans font-semibold text-gray-900 flex items-center gap-1.5">
+                  <span class="text-sm">🇳🇿</span>
+                  <span>New Zealand (NZ)</span>
+                </td>
+                <td>35</td>
+                <td>34</td>
+                <td class="text-gray-600">97.14%</td>
+                <td class="font-bold text-gray-900">6</td>
+                <td class="text-emerald-600 font-bold">$8.30</td>
+                <td class="text-gray-600">$0.244</td>
+                <td class="text-gray-600">$237.14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Bar -->
+        <div class="p-2.5 bg-gray-50 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
+          <span>Showing 1 to 5 of 28 geos</span>
+          <div class="flex items-center gap-1">
+            <button class="px-2 py-0.5 rounded border border-gray-300 bg-white hover:bg-gray-100">&lt;</button>
+            <button class="px-2.5 py-0.5 rounded bg-blue-600 text-white font-bold">1</button>
+            <button class="px-2.5 py-0.5 rounded border border-gray-300 bg-white hover:bg-gray-100">2</button>
+            <button class="px-2.5 py-0.5 rounded border border-gray-300 bg-white hover:bg-gray-100">3</button>
+            <button class="px-2 py-0.5 rounded border border-gray-300 bg-white hover:bg-gray-100">&gt;</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 3: Recently Added Offers + Top Performing + Account Manager + News (Image 2) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Box 1: Recently Added Offers -->
+        <div class="cpagrip-card">
+          <div class="cpagrip-card-header flex items-center justify-between">
+            <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-cart-shopping text-emerald-500"></i>
+              Recently Added Offers
+            </span>
+            <a href="offers.html"><i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-gray-400"></i></a>
+          </div>
+          <div class="p-3 space-y-3">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🇸🇳</span>
+                <div>
+                  <p class="font-semibold text-gray-900 text-xs">Video Content Stream</p>
+                  <span class="text-[10px] text-gray-400">Mobile Pin Submit</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold text-emerald-600">$1.37</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🇰🇼</span>
+                <div>
+                  <p class="font-semibold text-gray-900 text-xs">Fast VPN Android App</p>
+                  <span class="text-[10px] text-gray-400">App Install & Open</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold text-emerald-600">$3.72</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 2: Top Performing Offers -->
+        <div class="cpagrip-card">
+          <div class="cpagrip-card-header flex items-center justify-between">
+            <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-fire text-orange-500"></i>
+              Top Performing Offers
+            </span>
+            <a href="offers.html"><i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-gray-400"></i></a>
+          </div>
+          <div class="p-3 space-y-3">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🇺🇸</span>
+                <div>
+                  <p class="font-semibold text-gray-900 text-xs">Cash App $100 Voucher</p>
+                  <span class="text-[10px] text-emerald-600 font-bold">24.8% CR</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold text-orange-600">$4.20</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">🇩🇪</span>
+                <div>
+                  <p class="font-semibold text-gray-900 text-xs">Raid: Level 10 Unlock</p>
+                  <span class="text-[10px] text-emerald-600 font-bold">18.2% CR</span>
+                </div>
+              </div>
+              <span class="font-mono font-bold text-orange-600">$12.50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 3: Your Account Manager (Image 2) -->
+        <div class="cpagrip-card">
+          <div class="cpagrip-card-header">
+            <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-user-tie text-blue-500"></i>
+              Your Account Manager
+            </span>
+          </div>
+          <div class="p-3 space-y-2 text-xs">
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">John Wilson</h4>
+              <p class="text-gray-500 text-[11px]">(Senior Account Manager)</p>
+            </div>
+            <p class="text-[10px] text-gray-600 italic leading-snug">
+              Feel free to contact me if you have any questions, comments, or requests. Best time to reach me is: <strong>7am - 4pm (PST)</strong>
+            </p>
+            <div class="space-y-1 pt-1 font-mono text-[11px]">
+              <div class="flex items-center gap-1.5"><i class="fa-regular fa-envelope text-gray-400 text-xs"></i> <span>john@cpagrip.com</span></div>
+              <div class="flex items-center gap-1.5"><i class="fa-brands fa-skype text-blue-400 text-xs"></i> <span>cpagrip.john</span></div>
+              <div class="flex items-center gap-1.5"><i class="fa-regular fa-comment text-emerald-500 text-xs"></i> <span class="font-bold text-blue-600">JohnW</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 4: Latest Industry News (Image 2) -->
+        <div class="cpagrip-card">
+          <div class="cpagrip-card-header">
+            <span class="font-bold text-gray-800 text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-newspaper text-purple-500"></i>
+              Latest Industry News
+            </span>
+          </div>
+          <div class="p-3 space-y-2.5 text-xs">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h5 class="font-bold text-gray-900 text-[11px] hover:text-orange-500 cursor-pointer">How to Create Your Own Email Domain Free</h5>
+                <span class="text-[9px] text-gray-400 font-mono">22 Sep</span>
+              </div>
+              <p class="text-[10px] text-gray-500 leading-tight mt-0.5">
+                Section 1: Introduction. This post will walk you through the process of creating your own email domain...
+              </p>
+            </div>
+
+            <div class="border-t border-gray-100 pt-2">
+              <div class="flex justify-between items-baseline">
+                <h5 class="font-bold text-gray-900 text-[11px] hover:text-orange-500 cursor-pointer">G Suite Review: Google Business Email</h5>
+                <span class="text-[9px] text-gray-400 font-mono">09 Sep</span>
+              </div>
+              <p class="text-[10px] text-gray-500 leading-tight mt-0.5">
+                G Suite is a collection of online apps by Google that enable productivity...
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Initialize Hourly Stats Area Chart (Image 2)
+    const ctx = document.getElementById('cpagripHourlyChart')?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['12am', '3am', '6am', '9am', '12pm', '3pm', '6pm', '9pm', '11pm'],
+          datasets: [{
+            label: 'Leads / Hourly',
+            data: [6, 4, 12, 19, 28, 34, 22, 16, 11],
+            borderColor: '#22c55e',
+            backgroundColor: 'rgba(34, 197, 94, 0.25)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4,
+            pointRadius: 3,
+            pointBackgroundColor: '#22c55e'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { font: { size: 9 }, color: '#94a3b8' }
+            },
+            y: {
+              grid: { color: '#f1f5f9' },
+              ticks: { font: { size: 9 }, color: '#94a3b8' }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

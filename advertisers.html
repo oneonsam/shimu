@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertisers DSP | CPAShimu & CPAGrip</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="landing-body selection:bg-orange-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="h-20 border-b border-gray-800 bg-[#090c15]/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-2xl font-black text-white tracking-tight font-sans">CPA<span class="text-orange-500">Shimu</span></span>
+        <span class="text-gray-600">|</span>
+        <span class="text-xs text-orange-400 font-mono font-bold">DSP ADVERTISER</span>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-xs text-gray-300 hover:text-white font-semibold">Home</a>
+        <a href="dashboard.html" class="btn-orange-glow text-white font-bold text-xs px-4 py-2 rounded-lg">
+          Publisher Dashboard
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <span class="text-xs font-bold uppercase tracking-wider text-orange-500 font-mono">GLOBAL ADVERTISING SUITE</span>
+      <h1 class="text-4xl font-extrabold text-white">Scale With Direct Publisher Traffic</h1>
+      <p class="text-gray-400 text-sm">Target real verified users across 190+ countries with CPA, CPL, CPI and Smart Bidding models.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-[#101524] p-5 rounded-xl border border-gray-800 text-center">
+        <span class="text-xs text-gray-400 font-mono block">TIER 1 (US, UK, CA, AU)</span>
+        <div class="text-2xl font-extrabold text-white font-mono mt-1">45M+ / day</div>
+        <span class="text-[11px] text-orange-400 font-semibold">High Converting Inventory</span>
+      </div>
+      <div class="bg-[#101524] p-5 rounded-xl border border-gray-800 text-center">
+        <span class="text-xs text-gray-400 font-mono block">EUROPE (DE, FR, ES)</span>
+        <div class="text-2xl font-extrabold text-orange-500 font-mono mt-1">32M+ / day</div>
+        <span class="text-[11px] text-gray-400 font-semibold">Gaming & Sweepstakes</span>
+      </div>
+      <div class="bg-[#101524] p-5 rounded-xl border border-gray-800 text-center">
+        <span class="text-xs text-gray-400 font-mono block">LATAM & BRAZIL</span>
+        <div class="text-2xl font-extrabold text-white font-mono mt-1">68M+ / day</div>
+        <span class="text-[11px] text-orange-400 font-semibold">Massive Mobile Installs</span>
+      </div>
+      <div class="bg-[#101524] p-5 rounded-xl border border-gray-800 text-center">
+        <span class="text-xs text-gray-400 font-mono block">ASIA & GLOBAL</span>
+        <div class="text-2xl font-extrabold text-orange-500 font-mono mt-1">110M+ / day</div>
+        <span class="text-[11px] text-gray-400 font-semibold">Scale Volume</span>
+      </div>
+    </div>
+
+    <!-- Self Serve Campaign Setup Form -->
+    <div class="bg-[#101524] rounded-2xl p-7 border border-gray-800 max-w-3xl mx-auto space-y-5">
+      <h2 class="text-lg font-bold text-white">Create Direct Advertiser Campaign</h2>
+      <form onsubmit="event.preventDefault(); alert('Campaign created for review!');" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Campaign Title</label>
+          <input type="text" required placeholder="e.g. US Cash App Rewards CPL Campaign" class="w-full bg-[#161d31] border border-gray-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Target Landing Page URL</label>
+          <input type="url" required placeholder="https://yourbrand.com/offer?click_id={click_id}" class="w-full bg-[#161d31] border border-gray-700 rounded-lg px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-orange-500">
+        </div>
+        <div class="grid sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Pricing Model</label>
+            <select class="w-full bg-[#161d31] border border-gray-700 rounded-lg px-2.5 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
+              <option value="CPA">CPA ($2.50+)</option>
+              <option value="CPL">CPL ($1.20+)</option>
+              <option value="CPI">CPI ($0.90+)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Target Country</label>
+            <select class="w-full bg-[#161d31] border border-gray-700 rounded-lg px-2.5 py-2 text-xs text-white focus:outline-none focus:border-orange-500">
+              <option value="US">🇺🇸 United States</option>
+              <option value="UK">🇬🇧 United Kingdom</option>
+              <option value="GLOBAL">🌍 Global</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1">Daily Budget ($)</label>
+            <input type="number" min="20" value="100" class="w-full bg-[#161d31] border border-gray-700 rounded-lg px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-orange-500">
+          </div>
+        </div>
+        <button type="submit" class="btn-orange-glow text-white font-bold text-xs py-3 rounded-lg w-full">
+          Launch Campaign Now
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+</body>
+</html>

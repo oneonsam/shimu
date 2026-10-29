@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affiliate Registration | CPAShimu & CPAGrip</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="landing-body min-h-screen flex items-center justify-center p-4 py-12 selection:bg-orange-500 selection:text-white">
+
+  <div class="fixed inset-0 bg-dot-matrix pointer-events-none z-0"></div>
+  <div class="glow-orange-orb top-[-100px] right-[-150px] z-0"></div>
+
+  <div class="relative z-10 w-full max-w-lg">
+    
+    <div class="text-center mb-6">
+      <a href="index.html" class="inline-flex items-center gap-2">
+        <span class="text-2xl font-black text-white tracking-tight font-sans">CPA<span class="text-orange-500">Shimu</span></span>
+      </a>
+      <h1 class="text-xl font-bold text-white mt-2">Become an Affiliate Partner</h1>
+      <p class="text-xs text-gray-400">Join over 150,000 active publishers worldwide</p>
+    </div>
+
+    <div class="bg-[#101524] rounded-2xl p-7 border border-gray-800 shadow-2xl space-y-5">
+      
+      <form onsubmit="handleRegister(event)" class="space-y-4">
+        
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">Full Name</label>
+            <input type="text" required placeholder="Stella Green" class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">Email Address</label>
+            <input type="email" required placeholder="stella@affiliate.com" class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">Choose Password</label>
+            <input type="password" required placeholder="••••••••" class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 font-mono">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">Country</label>
+            <select class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-orange-500">
+              <option value="US">🇺🇸 United States</option>
+              <option value="UK">🇬🇧 United Kingdom</option>
+              <option value="CA">🇨🇦 Canada</option>
+              <option value="AU">🇦🇺 Australia</option>
+              <option value="DE">🇩🇪 Germany</option>
+              <option value="GLOBAL">🌍 Worldwide / Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">Skype or Telegram ID</label>
+            <input type="text" required placeholder="@affiliate_pro" class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 font-mono">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 mb-1.5">Preferred Payout Method</label>
+            <select class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-orange-500">
+              <option value="paypal">PayPal (Min $25)</option>
+              <option value="payoneer">Payoneer (Min $50)</option>
+              <option value="usdt">USDT TRC20 (Min $25 - 0% Fee)</option>
+              <option value="wire">Bank Wire Transfer (Min $500)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1.5">Primary Traffic Source</label>
+          <input type="text" placeholder="e.g. TikTok, YouTube Shorts, SEO Website, Facebook Ads, Media Buying" class="w-full bg-[#161d31] border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500">
+        </div>
+
+        <div class="flex items-center gap-2 text-xs text-gray-400">
+          <input type="checkbox" required checked class="rounded bg-gray-900 border-gray-700 text-orange-500 focus:ring-0">
+          <span>I agree to the CPAGrip terms and anti-fraud publisher agreement</span>
+        </div>
+
+        <button type="submit" class="btn-orange-glow text-white font-bold text-xs py-3.5 px-4 rounded-xl w-full flex items-center justify-center gap-2">
+          <span>Create Free Account & Go To Dashboard</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </button>
+
+      </form>
+
+      <div class="text-center pt-2 border-t border-gray-800 text-xs text-gray-400">
+        Already registered? 
+        <a href="login.html" class="text-orange-400 hover:text-orange-300 font-bold ml-1">Log In</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function handleRegister(e) {
+      e.preventDefault();
+      alert('Account registered! Taking you to the CPAGrip affiliate dashboard...');
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+
+</body>
+</html>

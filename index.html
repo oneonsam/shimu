@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPAShimu | Global High-Performance Affiliate Network</title>
+  <meta name="description" content="Earn more with high-converting CPA campaigns, smart content lockers, and fast global payouts.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#ff7a00',
+              deepOrange: '#ea580c',
+              dark: '#090c15',
+              card: '#101524'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="landing-body selection:bg-orange-500 selection:text-white">
+
+  <!-- Background Orbs & Dots Pattern (Inspired by Image 1) -->
+  <div class="fixed inset-0 bg-dot-matrix pointer-events-none z-0"></div>
+  <div class="glow-orange-orb top-[-150px] right-[-100px] z-0"></div>
+  <div class="glow-orange-orb bottom-[-200px] left-[-150px] z-0 opacity-50"></div>
+
+  <!-- Navigation Bar (Identical to Image 1) -->
+  <header class="relative z-40 border-b border-gray-800/60 backdrop-blur-md bg-[#090c15]/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-2xl font-black text-white tracking-tight font-sans">CPA<span class="text-orange-500">Shimu</span></span>
+      </a>
+
+      <!-- Center Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="index.html" class="text-white hover:text-orange-400 transition-colors">Home</a>
+        <a href="#tools" class="hover:text-orange-400 transition-colors">Monetization Tools</a>
+        <a href="#calculator" class="hover:text-orange-400 transition-colors">Earnings Calculator</a>
+        <a href="dashboard.html" class="hover:text-orange-400 transition-colors">Affiliate Panel</a>
+        <a href="lockers.html" class="hover:text-orange-400 transition-colors">Lockers</a>
+      </nav>
+
+      <!-- Right Action Buttons (Image 1) -->
+      <div class="flex items-center gap-3">
+        <a href="login.html" class="px-4 py-2 rounded-lg text-sm font-semibold text-gray-200 border border-gray-700 hover:border-gray-500 hover:bg-gray-800/60 transition-all">
+          Login
+        </a>
+        <a href="register.html" class="btn-orange-glow px-5 py-2 rounded-lg text-sm font-bold text-white transition-all">
+          Register
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section (Faithfully Mirroring Image 1) -->
+  <section class="relative pt-12 pb-24 lg:pt-24 lg:pb-36 z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content (Image 1 Copy & Styling) -->
+        <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/25 text-orange-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+            <span>Our Global Affiliate Marketing Platform</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Earn More With <br>
+            <span class="text-orange-500">Affiliate Marketing</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-gray-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Affiliate is perfect to grow your business & you can earn a lot of money by affiliate marketing. We're always here for you — start today!
+          </p>
+
+          <!-- Dual Buttons (Image 1) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="register.html" class="btn-orange-glow text-white font-bold text-base px-8 py-3.5 rounded-xl w-full sm:w-auto shadow-lg shadow-orange-500/30 text-center">
+              Become an Affiliate
+            </a>
+            
+            <a href="login.html" class="btn-dark-outline font-semibold text-base px-8 py-3.5 rounded-xl w-full sm:w-auto text-center">
+              Login Now
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Dashboard Card (Image 1 Exact Layout) -->
+        <div class="lg:col-span-5 relative">
+          
+          <!-- Top Floating Chip: New Earning +$1,240 Today -->
+          <div class="absolute -top-4 right-6 z-20 bg-[#141b2d] border border-gray-700/80 rounded-xl px-3.5 py-2 shadow-2xl flex items-center gap-2.5 animate-bounce">
+            <div class="w-6 h-6 rounded-md bg-orange-500 flex items-center justify-center text-white text-xs">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-400 block font-mono">New Earning</span>
+              <span class="text-xs font-bold text-white font-mono">+$1,240 Today</span>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Box (Image 1) -->
+          <div class="relative bg-[#101524] rounded-2xl p-6 sm:p-7 border border-gray-700/70 shadow-2xl space-y-6">
+            
+            <!-- Dashboard Header -->
+            <div>
+              <span class="text-[11px] font-mono tracking-wider font-semibold text-gray-400 uppercase">YOUR DASHBOARD</span>
+              <div class="flex items-baseline gap-2.5 mt-1">
+                <span class="text-3xl sm:text-4xl font-extrabold text-white font-mono">$24,580</span>
+                <span class="text-xs font-bold text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">+18.4%</span>
+              </div>
+              <p class="text-xs text-gray-400 mt-1">Total earnings this month</p>
+            </div>
+
+            <!-- 4 Grid Stats (Image 1) -->
+            <div class="grid grid-cols-2 gap-3.5">
+              
+              <div class="bg-[#161d31] rounded-xl p-4 border border-gray-800 text-center">
+                <div class="text-2xl sm:text-3xl font-extrabold text-orange-500 font-mono">150K+</div>
+                <span class="text-xs text-gray-400 font-medium block mt-1">Active Affiliates</span>
+              </div>
+
+              <div class="bg-[#161d31] rounded-xl p-4 border border-gray-800 text-center">
+                <div class="text-2xl sm:text-3xl font-extrabold text-orange-500 font-mono">$6.6B</div>
+                <span class="text-xs text-gray-400 font-medium block mt-1">Paid Out</span>
+              </div>
+
+              <div class="bg-[#161d31] rounded-xl p-4 border border-gray-800 text-center">
+                <div class="text-2xl sm:text-3xl font-extrabold text-orange-500 font-mono">190+</div>
+                <span class="text-xs text-gray-400 font-medium block mt-1">Countries</span>
+              </div>
+
+              <div class="bg-[#161d31] rounded-xl p-4 border border-gray-800 text-center">
+                <div class="text-2xl sm:text-3xl font-extrabold text-orange-500 font-mono">25Y</div>
+                <span class="text-xs text-gray-400 font-medium block mt-1">Experience</span>
+              </div>
+
+            </div>
+
+            <!-- Instant Access to CPAGrip Publisher Panel -->
+            <div class="pt-2">
+              <a href="dashboard.html" class="w-full py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>Open CPAGrip Demo Panel</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Bottom Floating Chip: Conversion 34.7% Rate -->
+          <div class="absolute -bottom-4 left-6 z-20 bg-[#141b2d] border border-gray-700/80 rounded-xl px-3.5 py-2 shadow-2xl flex items-center gap-2.5">
+            <div class="w-6 h-6 rounded-md bg-orange-500/20 text-orange-400 border border-orange-500/40 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <span class="text-[10px] text-gray-400 block font-mono">Conversion</span>
+              <span class="text-xs font-bold text-white font-mono">34.7% Rate</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- CPAGrip Monetization Tools Suite (Content Lockers, URL Lockers) -->
+  <section id="tools" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-orange-500 font-mono">INDUSTRY MONETIZATION TECH</span>
+        <h2 class="text-3xl font-extrabold text-white">CPAGrip-Grade Monetization Tools</h2>
+        <p class="text-gray-400 text-sm">Empowering affiliates with the highest converting lockers and smart links.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <div class="bg-[#101524] rounded-2xl p-6 border border-gray-800 hover:border-orange-500/50 transition-all space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xl">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Content Lockers</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Lock exclusive articles, guides, software or media. Visitors complete 1 sponsor offer to instantly unlock access.
+          </p>
+          <a href="lockers.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 font-mono pt-2">
+            <span>Explore Content Locker</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="bg-[#101524] rounded-2xl p-6 border border-gray-800 hover:border-orange-500/50 transition-all space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xl">
+            <i class="fa-solid fa-file-arrow-down"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">URL / File Lockers</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Protect download links, game mods, PDF files, and premium downloads with a seamless survey gate.
+          </p>
+          <a href="lockers.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 font-mono pt-2">
+            <span>Explore File Locker</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="bg-[#101524] rounded-2xl p-6 border border-gray-800 hover:border-orange-500/50 transition-all space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xl">
+            <i class="fa-solid fa-arrows-split-up-and-left"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">Smart Direct Links</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            Send raw social or search traffic to a single intelligent URL that auto-routes to the top paying offer per geo.
+          </p>
+          <a href="register.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-orange-400 hover:text-orange-300 font-mono pt-2">
+            <span>Get Smart Link</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Earnings Calculator -->
+  <section class="py-20 bg-[#0d1220] border-t border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-orange-500 font-mono">REVENUE ESTIMATOR</span>
+        <h2 class="text-3xl font-extrabold text-white">Calculate Your Monthly Revenue</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-center max-w-4xl mx-auto">
+        <div class="lg:col-span-7 bg-[#101524] rounded-2xl p-6 sm:p-8 space-y-6 border border-gray-800">
+          
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-gray-300">Daily Traffic (Visitors)</span>
+              <span id="val-visitors" class="text-orange-400 font-mono font-bold">5,000 / day</span>
+            </div>
+            <input type="range" id="calc-visitors" min="500" max="50000" step="500" value="5000" class="w-full accent-orange-500">
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-gray-300">Conversion Rate (CR)</span>
+              <span id="val-cr" class="text-orange-400 font-mono font-bold">12.0%</span>
+            </div>
+            <input type="range" id="calc-cr" min="1.0" max="25.0" step="0.5" value="12.0" class="w-full accent-orange-500">
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-semibold">
+              <span class="text-gray-300">Average Payout per Lead</span>
+              <span id="val-payout" class="text-orange-400 font-mono font-bold">$3.50</span>
+            </div>
+            <input type="range" id="calc-payout" min="1.00" max="30.00" step="0.50" value="3.50" class="w-full accent-orange-500">
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-5 bg-[#141b2d] rounded-2xl p-8 border border-orange-500/40 text-center space-y-4 shadow-2xl">
+          <span class="text-xs font-mono text-gray-400 uppercase tracking-wider font-semibold">Estimated Monthly Earnings</span>
+          <div id="res-monthly-earnings" class="text-4xl sm:text-5xl font-extrabold text-orange-500 font-mono">
+            $63,000
+          </div>
+          <div class="grid grid-cols-2 gap-2 pt-2 border-t border-gray-800 text-xs">
+            <div class="bg-[#101524] p-2.5 rounded-lg">
+              <span class="text-gray-500 block text-[10px]">DAILY REVENUE</span>
+              <span id="res-daily-earnings" class="font-bold text-white font-mono">$2,100.00</span>
+            </div>
+            <div class="bg-[#101524] p-2.5 rounded-lg">
+              <span class="text-gray-500 block text-[10px]">DAILY LEADS</span>
+              <span id="res-daily-conversions" class="font-bold text-white font-mono">600 Leads</span>
+            </div>
+          </div>
+          <a href="register.html" class="btn-orange-glow text-white font-bold text-xs py-3 px-6 rounded-xl w-full block">
+            Start Earning Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 bg-[#070a12] text-gray-400 text-xs py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-lg font-black text-white">CPA<span class="text-orange-500">Shimu</span></span>
+        <span class="text-gray-600">|</span>
+        <span class="text-gray-400">CPAGrip Performance Network</span>
+      </div>
+      <p class="text-gray-500">&copy; 2026 CPAShimu & CPAGrip Platform. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Offer Details Modal -->
+  <div id="offer-details-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="relative w-full max-w-md bg-[#101524] rounded-2xl border border-gray-700 p-6 shadow-2xl space-y-4">
+      <button onclick="closeOfferModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div>
+        <span id="modal-offer-id" class="text-[10px] font-mono text-orange-400 font-bold bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/30"></span>
+        <h3 id="modal-offer-title" class="text-base font-bold text-white mt-2"></h3>
+        <span id="modal-offer-category" class="text-xs text-gray-400 block mt-0.5"></span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 bg-[#161d31] p-3 rounded-xl border border-gray-800 text-center font-mono text-xs">
+        <div>
+          <span class="text-gray-500 block text-[10px]">PAYOUT</span>
+          <span id="modal-offer-payout" class="font-bold text-orange-400 text-sm"></span>
+        </div>
+        <div>
+          <span class="text-gray-500 block text-[10px]">AVG EPC</span>
+          <span id="modal-offer-epc" class="font-bold text-blue-400 text-sm"></span>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="text-xs font-semibold text-gray-300">Your Tracking Link</label>
+        <div class="flex items-center gap-2">
+          <input type="text" id="modal-tracking-link" readonly class="w-full bg-[#0a0e17] border border-gray-700 rounded-lg px-2.5 py-1.5 text-xs font-mono text-orange-400 select-all">
+          <button onclick="copyTrackingLink()" class="btn-orange-glow text-white font-bold text-xs px-3 py-1.5 rounded-lg shrink-0">
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

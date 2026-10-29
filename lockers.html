@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPAGrip - Monetization Tools & Locker Studio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-body bg-[#f1f5f9] text-[#1e293b] font-sans antialiased text-xs">
+
+  <!-- Header -->
+  <header class="h-14 bg-[#111726] border-b border-gray-800 text-white px-4 flex items-center justify-between sticky top-0 z-40">
+    <div class="flex items-center gap-4">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <span class="text-xl font-black tracking-tight text-white font-mono flex items-center">
+          <span class="text-emerald-400 mr-1"><i class="fa-solid fa-money-bill-wave"></i></span>
+          CPAGRIP
+        </span>
+      </a>
+      <span class="text-gray-400">|</span>
+      <span class="text-xs text-gray-300 font-semibold">Locker Studio & Generator</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="dashboard.html" class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to Dashboard</span>
+      </a>
+      <a href="offers.html" class="bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors">
+        <i class="fa-solid fa-list-check"></i>
+        <span>Offers List</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-4 md:p-6 space-y-4">
+    
+    <div>
+      <span class="text-gray-400 text-xs">Home / Monetization Tools /</span>
+      <h1 class="text-xl font-bold text-gray-800 inline-block ml-1">Locker Studio</h1>
+      <p class="text-xs text-gray-500 mt-0.5">Customize your content lockers and URL gates with real-time preview simulation.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Left Configurator (Col 6) -->
+      <div class="lg:col-span-6 cpagrip-card p-5 space-y-5">
+        <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+          <h2 class="font-bold text-gray-800 text-sm">Locker Properties</h2>
+          <span class="text-[10px] font-mono text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Active Template</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Locker Title</label>
+          <input type="text" id="cfg-title" value="Premium Content Locked!" oninput="updatePreview()" class="w-full bg-white border border-gray-300 rounded px-3 py-2 text-xs text-gray-900 focus:outline-none focus:border-orange-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Lead Instructions</label>
+          <textarea id="cfg-instructions" rows="2" oninput="updatePreview()" class="w-full bg-white border border-gray-300 rounded px-3 py-2 text-xs text-gray-900 focus:outline-none focus:border-orange-500">Complete any 1 free sponsor offer below to automatically unlock and access this content immediately.</textarea>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Number of Offers</label>
+            <select class="w-full bg-white border border-gray-300 rounded px-2.5 py-1.5 text-xs text-gray-800 focus:outline-none focus:border-orange-500">
+              <option value="3">3 Offers (Recommended)</option>
+              <option value="2">2 Offers</option>
+              <option value="4">4 Offers</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Offer Payout Priority</label>
+            <select class="w-full bg-white border border-gray-300 rounded px-2.5 py-1.5 text-xs text-gray-800 focus:outline-none focus:border-orange-500">
+              <option value="all">Maximum Fill Rate (All)</option>
+              <option value="high">High EPC Priority</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Embed Script Code -->
+        <div class="pt-3 border-t border-gray-100 space-y-1.5">
+          <label class="text-xs font-bold text-gray-700">Embed Javascript Code</label>
+          <div class="flex items-center gap-2">
+            <input type="text" id="embed-code" readonly value='&lt;script src="https://cpagrip.link/locker/LK-400264.js"&gt;&lt;/script&gt;' class="w-full bg-gray-100 border border-gray-300 rounded px-2.5 py-1.5 text-xs font-mono text-gray-800 select-all">
+            <button onclick="navigator.clipboard.writeText(document.getElementById('embed-code').value); alert('Embed code copied!');" class="bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs px-3 py-1.5 rounded shrink-0">
+              Copy
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Live Preview (Col 6) -->
+      <div class="lg:col-span-6 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-gray-800 text-xs font-mono uppercase">Live Simulated Preview</span>
+          <span class="text-[10px] text-gray-400 font-mono">Real-time Rendering</span>
+        </div>
+
+        <!-- Preview Mock Container -->
+        <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 shadow-xl flex items-center justify-center min-h-[400px]">
+          
+          <div class="w-full max-w-sm bg-white rounded-lg p-5 border border-gray-300 shadow-2xl space-y-4 text-center">
+            
+            <div class="w-12 h-12 rounded-full bg-orange-100 border border-orange-300 flex items-center justify-center text-orange-500 text-xl mx-auto">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div>
+              <h3 id="prev-title" class="text-base font-bold text-gray-900">Premium Content Locked!</h3>
+              <p id="prev-desc" class="text-xs text-gray-500 mt-1 leading-snug">
+                Complete any 1 free sponsor offer below to automatically unlock and access this content immediately.
+              </p>
+            </div>
+
+            <div class="space-y-2 text-left">
+              <div class="p-2.5 rounded bg-gray-50 border border-gray-200 hover:border-orange-500 flex items-center justify-between cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">💳</span>
+                  <div>
+                    <h4 class="text-xs font-bold text-gray-900">Claim $100 Cash App</h4>
+                    <span class="text-[10px] text-gray-500">Simple 60-second survey</span>
+                  </div>
+                </div>
+                <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">Free</span>
+              </div>
+
+              <div class="p-2.5 rounded bg-gray-50 border border-gray-200 hover:border-orange-500 flex items-center justify-between cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">🎮</span>
+                  <div>
+                    <h4 class="text-xs font-bold text-gray-900">Raid: Shadow Legends</h4>
+                    <span class="text-[10px] text-gray-500">Reach Level 10</span>
+                  </div>
+                </div>
+                <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">Free</span>
+              </div>
+
+              <div class="p-2.5 rounded bg-gray-50 border border-gray-200 hover:border-orange-500 flex items-center justify-between cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">🎁</span>
+                  <div>
+                    <h4 class="text-xs font-bold text-gray-900">Get $750 PayPal Card</h4>
+                    <span class="text-[10px] text-gray-500">Email submit</span>
+                  </div>
+                </div>
+                <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">Free</span>
+              </div>
+            </div>
+
+            <div class="text-[10px] text-gray-400 font-mono pt-2 border-t border-gray-100">
+              🔒 Powered by CPAGrip Engine
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    function updatePreview() {
+      const title = document.getElementById('cfg-title')?.value || 'Content Locked!';
+      const desc = document.getElementById('cfg-instructions')?.value || 'Complete 1 offer to unlock.';
+      document.getElementById('prev-title').innerText = title;
+      document.getElementById('prev-desc').innerText = desc;
+    }
+  </script>
+</body>
+</html>
